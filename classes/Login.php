@@ -17,8 +17,9 @@ class Login extends DBConnection {
 	}
 	public function login(){
 		extract($_POST);
-
-		$qry = $this->conn->query("SELECT * from users where username = '$username' and password = md5('$password') ");
+    //disable password hashing on login
+		//$qry = $this->conn->query("SELECT * from users where username = '$username' and password = md5('$password') ");
+		$qry = $this->conn->query("SELECT * from users where username = '$username' and password = $password ");
 		if($qry->num_rows > 0){
 			foreach($qry->fetch_array() as $k => $v){
 				if(!is_numeric($k) && $k != 'password'){
