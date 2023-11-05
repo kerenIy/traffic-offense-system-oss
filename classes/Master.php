@@ -18,7 +18,6 @@ Class Master extends DBConnection {
 			$resp['status'] = 'failed';
 			$resp['error'] = $this->conn->error;
 			return json_encode($resp);
-			exit;
 		}
 	}
 	function save_offense(){
@@ -41,7 +40,6 @@ Class Master extends DBConnection {
 			$resp['status'] = 'failed';
 			$resp['msg'] = "Offense code already exist.";
 			return json_encode($resp);
-			exit;
 		}
 		if(empty($id)){
 			$sql = "INSERT INTO `offenses` set {$data} ";
@@ -245,7 +243,6 @@ Class Master extends DBConnection {
 			$resp['status'] = 'failed';
 			$resp['msg'] = "Offense Ticker No. already exist in the database. Please review and try again.";
 			return json_encode($resp);
-			exit;
 		}
 
 		if(empty($id)){
@@ -261,7 +258,8 @@ Class Master extends DBConnection {
 		$data = "";
 		foreach($offense_id as $k => $v){
 			if(!empty($data)) $data .= ", ";
-			$data .= "('{$driver_offense_id}','{$v}','{$fine[$k]}','{$status}','{$date_created}')";
+      //add new col here too
+			$data .= "('{$driver_offense_id}','{$v}','{$fine[$k]}','{$status}','{$due_date}','{$date_created}')";
 		}
     //add the new columns here for due date
 		$save2= $this->conn->query("INSERT INTO `offense_items` (`driver_offense_id`,`offense_id`,`fine`,`status`,`due_date`,`date_created`) VALUES {$data}");
@@ -292,6 +290,14 @@ Class Master extends DBConnection {
 		return json_encode($resp);
 
 	}
+
+  function send_mail_notification($email,$traffic_offense){
+    //get the email from you want to send the notification too
+    $to= $email;
+    $subject= 'Overdue payment';
+    $message= `This is to inform you that your traffic offense {$traffic_offense}`;
+    mail($to,$subject,$traffic_offense);
+  }
 }
 
 $Master = new Master();
@@ -323,6 +329,9 @@ switch ($action) {
 	case 'delete_img':
 		echo $Master->delete_img();
 	break;
+  case 'send_mail_notification':
+    echo $Master->send_mail_notification($email, $traffic_offense);
+    break;
 	default:
 		// echo $sysset->index();
 		break;
