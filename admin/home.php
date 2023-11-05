@@ -2,12 +2,12 @@
 <hr class="bg-light">
 <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box">
+            <div class="info-box" style="padding: 30px 10px; border-radius: 10px;">
               <span class="info-box-icon bg-light elevation-1"><i class="fas fa-calendar-day"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Today's Offences</span>
-                <span class="info-box-number text-right">
+                <span class="info-box-text" style="font-weight: 500; text-transform: capitalize; margin-left: 30px; font-size: 1.3rem">Today's Offences</span>
+                <span class="info-box-number text-right" style="font-weight: 300; text-transform: capitalize; margin-left: 30px; font-size: 1.7rem;">
                   <?php 
                     $offense = $conn->query("SELECT * FROM `offense_list` where date(date_created) = '".date('Y-m-d')."' ")->num_rows;
                     echo number_format($offense);
