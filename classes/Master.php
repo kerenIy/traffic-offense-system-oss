@@ -263,6 +263,7 @@ Class Master extends DBConnection {
 			if(!empty($data)) $data .= ", ";
 			$data .= "('{$driver_offense_id}','{$v}','{$fine[$k]}','{$status}','{$date_created}')";
 		}
+    //add the new columns here for due date
 		$save2= $this->conn->query("INSERT INTO `offense_items` (`driver_offense_id`,`offense_id`,`fine`,`status`,`date_created`) VALUES {$data}");
 		$this->capture_err();
 		if($save && $save2){
