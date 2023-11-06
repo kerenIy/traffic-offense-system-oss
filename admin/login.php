@@ -1,16 +1,18 @@
 <?php require_once('../config.php');
-require_once('../classes/Login.php'); ?>
+//require_once('../classes/Login.php'); ?>
 <!DOCTYPE html>
 <html lang="en" class="" style="height: auto;">
  <?php require_once('inc/header.php') ?>
  <style>
    body{
-     background-image: url('<?php echo validate_image($_settings->info('cover')) ?>');
+     /* background-image: url('<?php echo validate_image($_settings->info('cover')) ?>'); */
+     background-color: #1D1F2C;
+     color: #1D1F2C;
      background-size:cover;
      background-repeat:no-repeat;
    }
  </style>
-<body class="hold-transition login-page ">
+<body class="hold-transition login-page " style="background-color: #1D1F2C; color: #fff;">
   <script>
     start_loader()
   </script>
@@ -19,7 +21,7 @@ require_once('../classes/Login.php'); ?>
   <!-- /.login-logo -->
   <div class="card card-primary">
     <div class="card-body">
-      <form id="login-frm" action="" method="post">
+      <form id="login-frm" action="" method="post" style="padding: 30px;">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="username" placeholder="Username">
           <div class="input-group-append">
@@ -36,13 +38,14 @@ require_once('../classes/Login.php'); ?>
             </div>
           </div>
         </div>
+        <br>
         <div class="row justify-content-between">
           <div class="col">
             <a href="<?php echo base_url ?>">Go to Portal</a>
           </div>
           <!-- /.col -->
           <div class="col text-right">
-            <button type="submit" class="btn btn-primary btn-flat btn-sm">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-flat btn-sm" style="padding: 10px 25px; font-size: 1.1rem; border-radius: 5px; border: #1D1F2C; background-color: #1D1F2C; color: #fff;">Sign In</button>
           </div>
           <!-- /.col -->
         </div>

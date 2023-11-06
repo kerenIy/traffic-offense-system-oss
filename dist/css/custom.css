@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap");
 
 .truncate {
   overflow: hidden;
@@ -154,7 +154,7 @@ label.star:hover {
 
 label.star:before {
   content: "\2605";
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .whitespace-nowrap {

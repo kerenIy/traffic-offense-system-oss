@@ -1,10 +1,10 @@
 </style>
 <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary text-white bg-lightblue disabled elevation-4 sidebar-no-expand">
+      <aside class="main-sidebar sidebar-dark-primary text-white disabled elevation-4 sidebar-no-expand" >
         <!-- Brand Logo -->
-        <a href="<?php echo base_url ?>admin" class="brand-link bg-lightblue text-sm">
+        <a href="<?php echo base_url ?>admin" class="brand-link text-sm" style="background-color: #1D1F2C; color: #fff;">
         <img src="<?php echo validate_image($_settings->info('logo'))?>" alt="Store Logo" class="brand-image img-circle elevation-3" style="opacity: .8;width: 1.7rem;height: 1.7rem;max-height: unset">
-        <span class="brand-text font-weight-light"><?php echo $_settings->info('short_name') ?></span>
+        <span class="brand-text font-weight-medium" style="font-size: 1.1rem; background-color: #1D1F2C; color: #fff;">TOMS</span>
         </a>
         <!-- Sidebar -->
         <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-transition os-host-scrollbar-horizontal-hidden">
@@ -17,67 +17,83 @@
           <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 646px;"></div>
           <div class="os-padding">
             <div class="os-viewport os-viewport-native-scrollbars-invisible" style="overflow-y: scroll;">
-              <div class="os-content" style="padding: 0px 8px; height: 100%; width: 100%;">
+              <div class="os-content" style="padding: 0px 8px; height: 100%; width: 1500px; background-color: #1D1F2C; color: #fff;">
                 <!-- Sidebar user panel (optional) -->
                 <div class="clearfix"></div>
                 <!-- Sidebar Menu -->
-                <nav class="mt-4">
+                <nav class="mt-4" style="">
                    <ul class="nav nav-pills nav-sidebar flex-column text-sm nav-compact nav-flat nav-child-indent nav-collapse-hide-child" data-widget="treeview" role="menu" data-accordion="false">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown my-2">
                       <a href="./" class="nav-link nav-home">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                          Dashboard
+                        <i class="nav-icon fas fa-tachometer-alt" style="font-size: 0.95rem"></i>
+                        <p style="font-size: 1.1rem; font-weight: 200;">
+                          Dashboard   
                         </p>
                       </a>
                     </li> 
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown  my-2">
                       <a href="<?php echo base_url ?>admin/?page=offenses" class="nav-link nav-offenses">
-                        <i class="nav-icon fas fa-file-alt"></i>
-                        <p>
+                        <i class="nav-icon fas fa-file-alt" style="font-size: 0.95rem"></i>
+                        <p style="font-size: 1.1rem; font-weight: 200;">
                           Offense Records
                         </p>
                       </a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown  my-2">
                       <a href="<?php echo base_url ?>admin/?page=drivers" class="nav-link nav-drivers">
-                        <i class="nav-icon fas fa-id-card"></i>
-                        <p>
+                        <i class="nav-icon fas fa-id-card" style="font-size: 0.95rem"></i>
+                        <p style=" font-size: 1.1rem; font-weight: 200;">
                           Drivers List
                         </p>
                       </a>
                     </li>
                     
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown  my-2">
                       <a href="<?php echo base_url ?>admin/?page=reports" class="nav-link nav-reports">
-                        <i class="nav-icon fas fa-file"></i>
-                        <p>
+                        <i class="nav-icon fas fa-file" style="font-size: 0.95rem"></i>
+                        <p style="font-size: 1.1rem; font-weight: 200;">
                           Reports
                         </p>
                       </a>
                     </li>
-                    <li class="nav-header">Maintenance</li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-header" style="color: gray; font-size: 0.95rem">Maintenance</li>
+                    <li class="nav-item dropdown  my-2">
                       <a href="<?php echo base_url ?>admin/?page=maintenance/offenses" class="nav-link nav-maintenance_offenses">
-                        <i class="nav-icon fas fa-traffic-light"></i>
-                        <p>
+                        <i class="nav-icon fas fa-traffic-light" style=" font-size: 0.95rem"></i>
+                        <p style=" font-size: 1.1rem; font-weight: 200;">
                           Offenses List
                         </p>
                       </a>
                     </li>
+                    <li class="nav-item dropdown  my-2">
+                      <a href="<?php echo base_url ?>admin/?page=user/list" class="nav-link nav-maintenance_offenses">
+                        <i class="nav-icon fas fa-users" style=" font-size: 0.95rem"></i>
+                        <p style=" font-size: 1.1rem; font-weight: 200;">
+                          User List
+                        </p>
+                      </a>
+                    </li>
+                    <li class="nav-item dropdown  my-2">
+                      <a href="<?php echo base_url ?>admin/?page=system_info" class="nav-link nav-maintenance_offenses">
+                        <i class="nav-icon fas fa-cogs" style=" font-size: 0.95rem"></i>
+                        <p style=" font-size: 1.1rem; font-weight: 200;">
+                          Settings
+                        </p>
+                      </a>
+                    </li>
                     <?php if($_settings->userdata('type') == 1): ?>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown  my-2">
                       <a href="<?php echo base_url ?>admin/?page=user/list" class="nav-link nav-user_list">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
+                        <i class="nav-icon fas fa-users" style=" font-size: 0.95rem"></i>
+                        <p style=" font-size: 1.1rem; font-weight: 200;">
                           User List
                         </p>
                       </a>
                     </li>
                     <li class="nav-item dropdown">
                       <a href="<?php echo base_url ?>admin/?page=system_info" class="nav-link nav-system_info">
-                        <i class="nav-icon fas fa-cogs"></i>
-                        <p>
+                        <i class="nav-icon fas fa-cogs" style="font-size: 0.95rem"></i>
+                        <p style="font-size: 1.1rem; font-weight: 200;">
                           Settings
                         </p>
                       </a>
@@ -111,7 +127,7 @@
       page = page.join('_');
 
       if($('.nav-link.nav-'+page).length > 0){
-             $('.nav-link.nav-'+page).addClass('active')
+             $('.nav-link.nav-'+page).addClass('')
         if($('.nav-link.nav-'+page).hasClass('tree-item') == true){
             $('.nav-link.nav-'+page).closest('.nav-treeview').siblings('a').addClass('active')
           $('.nav-link.nav-'+page).closest('.nav-treeview').parent().addClass('menu-open')

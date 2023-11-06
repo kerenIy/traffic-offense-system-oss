@@ -59,7 +59,7 @@
     <style>
     #main-header{
         position:relative;
-        background: rgb(0,0,0)!important;
+        background: #1D1F2C !important;
         background: radial-gradient(circle, rgba(0,0,0,0.48503151260504207) 22%, rgba(0,0,0,0.39539565826330536) 49%, rgba(0,212,255,0) 100%)!important;
         height: 80vh !important;
     }
@@ -70,7 +70,7 @@
         left:0;
         width:100%;
         height:100%;
-        background-image:url(<?php echo base_url.$_settings->info('cover') ?>);
+        background-color: #1D1F2C;
         background-repeat: no-repeat;
         background-size: cover;
         filter: drop-shadow(0px 7px 6px black);
