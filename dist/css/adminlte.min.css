@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
 /*!
  *   AdminLTE v3.1.0-rc
  *   Author: Colorlib
@@ -37,8 +37,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Bricolage Grotesque", sans-serif;
-  --font-family-monospace: "Bricolage Grotesque", sans-serif;
+  --font-family-sans-serif: "Poppins", sans-serif;
+  --font-family-monospace: "Poppins", sans-serif;
 }
 *,
 ::after,
@@ -46,7 +46,7 @@
   box-sizing: border-box;
 }
 html {
-    font-family: "Bricolage Grotesque", sans-serif;
+    font-family: "Poppins", sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
@@ -65,7 +65,7 @@ section {
 }
 body {
   margin: 0;
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -172,8 +172,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: "Bricolage Grotesque", sans-serif;
-    "Courier New", monospace;
+    font-family: "Poppins", sans-serif;
   font-size: 1em;
 }
 pre {
@@ -5728,7 +5727,7 @@ a.disabled.mailbox-attachment-close {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5836,7 +5835,7 @@ a.disabled.mailbox-attachment-close {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -9242,7 +9241,7 @@ button.bg-dark:hover {
   background-color: rgba(0, 0, 0, 0);
 }
 .text-monospace {
-    font-family: "Bricolage Grotesque", sans-serif !important;
+    font-family: "Poppins", sans-serif !important;
 }
 .text-justify {
   text-align: justify !important;
@@ -25162,7 +25161,7 @@ select.form-control-sm
   position: relative;
 }
 .mapael .mapTooltip {
-font-family: "Bricolage Grotesque", sans-serif;
+font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
