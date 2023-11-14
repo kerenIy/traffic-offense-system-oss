@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="form-group">
-        <button class="btn btn-flat btn-primary" form="make-payment-form">Search</button>
+        <button class="btn btn-flat btn-primary" form="make-payment-form">Make payment</button>
       </div>
     </form>
   </div>
