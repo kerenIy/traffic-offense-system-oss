@@ -122,12 +122,36 @@
         <div class="col-6">
           <div class="form-group">
             <label for="control-label" for="reporter_name">Reporter Name</label>
-            <input type="text" class="form-control" id="reporter_name" placeholder="Enter reporter name" required />
+            <input type="text" name="control-label" class="form-control" id="reporter_name" placeholder="Enter reporter name" required />
           </div>
           <div class="form-group">
             <label for="control-label" for="reporter_phone">Reporter Phone</label>
             <input type="text" class="form-control" id="reporter_phone" placeholder="Enter reporter phone" required />
           </div>
+<<<<<<< HEAD
+=======
+          <div class="form-group">
+                <label for="offense_type">Type of Offense:</label>
+                <select class="form-control" id="offense_type" name="offense_type" required placeholder="select an offense">
+                    <option value="">Select Offense Type</option>
+                    <option value="Speeding">Speeding</option>
+                    <option value="Reckless Driving">Reckless Driving</option>
+                    <option value="DUI">DUI</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="license_plate_no">Description</label>
+                <input type="textarea" class="form-control" id="license_plate_no" name="license_plate_no" required placeholder="Give a short description">
+            </div>
+          <div class="form-group">
+            <label class="control-label" for="status">Status</label>
+            <select name="status" id="status" class="custom-select" required>
+              <option value="0" <?php echo (isset($status) && $status == '0') ? 'selected' : '' ?>>Pending</option>
+              <option value="1" <?php echo (isset($status) && $status == '1') ? 'selected' : '' ?>>Paid</option>
+            </select>
+          </div>
+>>>>>>> 592b914f92438a385db8d9bfe1f2f70aac355851
         </div>
 
         <div class="col-6">

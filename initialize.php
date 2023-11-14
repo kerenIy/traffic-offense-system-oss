@@ -7,4 +7,12 @@ if(!defined('DB_SERVER')) define('DB_SERVER',"localhost");
 if(!defined('DB_USERNAME')) define('DB_USERNAME',"root");
 if(!defined('DB_PASSWORD')) define('DB_PASSWORD',"");
 if(!defined('DB_NAME')) define('DB_NAME',"traffic_offense_db");
+if(!defined("SMTP_HOST")) define("SMTP_HOST","");
+if(!defined("SMTP_PORT")) define("SMTP_PORT","");
+if(!defined("SMTP_USERNAME")) define("SMTP_USERNAME","");
+if(!defined("SMTP_PASSWORD")) define("SMTP_PASSWORD","");
+if(!defined("FROM_EMAIL")) define("FROM_EMAIL","");
+
+
+
 ?>

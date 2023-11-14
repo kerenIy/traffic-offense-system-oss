@@ -306,7 +306,7 @@ class Master extends DBConnection
           $data .= ",";
         $data .= " `{$k}`='{$v}' ";
       }
-      $chk = $this->conn->query("SELECT * FROM `offense_list` where");
+      $chk = $this->conn->query("SELECT * FROM `offense_list` where license_id_no = `` ");
     }
   }
   function delete_offense_record()
