@@ -1,5 +1,9 @@
 <?php require_once('./config.php'); ?>
+
+
 <!DOCTYPE HTML>
+
+<html>
 
 <head>
   <title> Make Payments |
@@ -24,21 +28,30 @@
     <div>
       <h4 class="text-blue">Make Payments</h4>
     </div>
-    <form action="" id="make-payment-form">
+    <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay" id="make-payment-form">
       <div class="row">
         <div class="col-6">
           <div class="form-group">
             <label for="control-label" for="offense_id">Enter traffic offense id</label>
-            <input type="text" class="form-control" id="offense_id" placeholder="Enter ID" />
+            <input type="text" class="form-control" name="offense_id" id="offense_id" placeholder="Enter ID" />
+          </div>
+          <div class="form-group">
+            <input type="hidden" name="public_key" value="FLWPUBK_TEST-eb4c7c086ab0f56b2367f9c407ab303e-X" />
+            <input type="hidden" class="form-control" name="customer[name]" value="Keren" />
+            <input type="hidden" class="form-control" name="customer[email]" value="keren@gmail.com" />
+            <input type="hidden" name="tx_ref" value="txref-81123" />
+            <input type="hidden" name="amount" value="20000" />
+            <input type="hidden" name="currency" value="NGN" />
+            <input type="hidden" name="meta[source]" value="docs-html-test" />
           </div>
         </div>
       </div>
       <div class="form-group">
-        <button class="btn btn-flat btn-primary" form="make-payment-form">Search</button>
+        <button class="btn btn-flat btn-primary" form="make-payment-form">Make payment</button>
       </div>
     </form>
   </div>
-
+  <!--
   <script>
     $('#make-payment-form').submit(function (e) {
       e.preventDefault()
@@ -50,9 +63,47 @@
         end_loader();
         return false;
       }
+      $.ajax({
+        url: _base_url_ + "classes/Master.php?f=pay",
+        data: new FormData($(this)[0]),
+        cache: false,
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        type: 'POST',
+        dataType: 'json',
+        error: err => {
+          console.log(err)
+          alert_toast("An error occured", 'error');
+          end_loader();
+        },
+        success: function (resp) {
+          if (typeof resp == 'object' && resp.status == 'success') {
+            end_loader();
+            uni_modal("<i class='fa fa-ticket'></i> Driver's Offense Ticket Details", "offenses/view_details.php?id=" + resp.id, 'mid-large')
+            setTimeout(() => {
+              end_loader();
+            }, 500);
+            $('#uni_modal').on('hide.bs.modal', function (e) {
+              location.href = "./?page=offenses";
+            })
+          } else if (resp.status == 'failed' && !!resp.msg) {
+            var el = $('<div>')
+            el.addClass("alert alert-danger err-msg").text(resp.msg)
+            _this.prepend(el)
+            el.show('slow')
+            $("html, body").animate({ scrollTop: _this.closest('.card').offset().top }, "fast");
+            end_loader()
+          } else {
+            alert_toast("An error occured", 'error');
+            end_loader();
+            console.log(resp)
+          }
+        }
+      })
     })
   </script>
-
+  -->
 </body>
 
-</body>
+</html>
