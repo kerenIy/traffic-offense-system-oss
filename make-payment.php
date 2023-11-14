@@ -28,12 +28,21 @@
     <div>
       <h4 class="text-blue">Make Payments</h4>
     </div>
-    <form action="" id="make-payment-form">
+    <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay" id="make-payment-form">
       <div class="row">
         <div class="col-6">
           <div class="form-group">
             <label for="control-label" for="offense_id">Enter traffic offense id</label>
             <input type="text" class="form-control" name="offense_id" id="offense_id" placeholder="Enter ID" />
+          </div>
+          <div class="form-group">
+            <input type="hidden" name="public_key" value="FLWPUBK_TEST-eb4c7c086ab0f56b2367f9c407ab303e-X" />
+            <input type="hidden" class="form-control" name="customer=[name]" value="Keren" />
+            <input type="hidden" class="form-control" name="customer=[email]" value="keren@gmail.com" />
+            <input type="hidden" name="tx_ref" value="txref-81123" />
+            <input type="hidden" name="amount" value="20000" />
+            <input type="hidden" name="currency" value="NGN" />
+            <input type="hidden" name="meta[source]" value="docs-html-test" />
           </div>
         </div>
       </div>
@@ -42,7 +51,7 @@
       </div>
     </form>
   </div>
-
+  <!--
   <script>
     $('#make-payment-form').submit(function (e) {
       e.preventDefault()
@@ -94,7 +103,7 @@
       })
     })
   </script>
-
+  -->
 </body>
 
 </html>
