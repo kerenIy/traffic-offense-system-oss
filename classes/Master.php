@@ -332,6 +332,41 @@ class Master extends DBConnection
     $message = `This is to inform you that your traffic offense {$traffic_offense}`;
     mail($to, $subject, $message);
   }
+
+  function pay()
+  {
+    $url = "https://api.paystack.co/transaction/initialize";
+
+    $fields = [
+      'email' => "customer@email.com",
+      'amount' => "20000"
+    ];
+
+    $fields_string = http_build_query($fields);
+
+    //open connection
+    $ch = curl_init();
+
+    //set the url, number of POST vars, POST data
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+    curl_setopt(
+      $ch,
+      CURLOPT_HTTPHEADER,
+      array(
+        "Authorization: Bearer pk_test_3303950af1caef766c2dc179675e4037c6675705",
+        "Cache-Control: no-cache",
+      )
+    );
+
+    //So that curl_exec returns the contents of the cURL; rather than echoing it
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    //execute post
+    $result = curl_exec($ch);
+    echo $result;
+  }
 }
 
 $Master = new Master();
@@ -365,6 +400,9 @@ switch ($action) {
     break;
   case 'send_mail_notification':
     echo $Master->send_mail_notification($email, $traffic_offense);
+    break;
+  case 'pay':
+    echo $Master->pay();
     break;
   default:
     // echo $sysset->index();

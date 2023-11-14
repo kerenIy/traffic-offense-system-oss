@@ -1,5 +1,9 @@
 <?php require_once('./config.php'); ?>
+
+
 <!DOCTYPE HTML>
+
+<html>
 
 <head>
   <title> Make Payments |
@@ -29,7 +33,7 @@
         <div class="col-6">
           <div class="form-group">
             <label for="control-label" for="offense_id">Enter traffic offense id</label>
-            <input type="text" class="form-control" id="offense_id" placeholder="Enter ID" />
+            <input type="text" class="form-control" name="offense_id" id="offense_id" placeholder="Enter ID" />
           </div>
         </div>
       </div>
@@ -50,9 +54,47 @@
         end_loader();
         return false;
       }
+      $.ajax({
+        url: _base_url_ + "classes/Master.php?f=pay",
+        data: new FormData($(this)[0]),
+        cache: false,
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        type: 'POST',
+        dataType: 'json',
+        error: err => {
+          console.log(err)
+          alert_toast("An error occured", 'error');
+          end_loader();
+        },
+        success: function (resp) {
+          if (typeof resp == 'object' && resp.status == 'success') {
+            end_loader();
+            uni_modal("<i class='fa fa-ticket'></i> Driver's Offense Ticket Details", "offenses/view_details.php?id=" + resp.id, 'mid-large')
+            setTimeout(() => {
+              end_loader();
+            }, 500);
+            $('#uni_modal').on('hide.bs.modal', function (e) {
+              location.href = "./?page=offenses";
+            })
+          } else if (resp.status == 'failed' && !!resp.msg) {
+            var el = $('<div>')
+            el.addClass("alert alert-danger err-msg").text(resp.msg)
+            _this.prepend(el)
+            el.show('slow')
+            $("html, body").animate({ scrollTop: _this.closest('.card').offset().top }, "fast");
+            end_loader()
+          } else {
+            alert_toast("An error occured", 'error');
+            end_loader();
+            console.log(resp)
+          }
+        }
+      })
     })
   </script>
 
 </body>
 
-</body>
+</html>
