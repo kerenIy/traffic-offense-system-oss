@@ -37,8 +37,8 @@
           </div>
           <div class="form-group">
             <input type="hidden" name="public_key" value="FLWPUBK_TEST-eb4c7c086ab0f56b2367f9c407ab303e-X" />
-            <input type="hidden" class="form-control" name="customer=[name]" value="Keren" />
-            <input type="hidden" class="form-control" name="customer=[email]" value="keren@gmail.com" />
+            <input type="hidden" class="form-control" name="customer[name]" value="Keren" />
+            <input type="hidden" class="form-control" name="customer[email]" value="keren@gmail.com" />
             <input type="hidden" name="tx_ref" value="txref-81123" />
             <input type="hidden" name="amount" value="20000" />
             <input type="hidden" name="currency" value="NGN" />
