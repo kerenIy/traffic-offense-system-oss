@@ -294,6 +294,21 @@ class Master extends DBConnection
     }
     return json_encode($resp);
   }
+
+  function save_public_offense_record()
+  {
+    extract($_POST);
+    $data = "";
+    foreach ($_POST as $k => $v) {
+      if (in_array($k, array("reporter_name", "", ""))) {
+        $v = addslashes($v);
+        if (!empty($data))
+          $data .= ",";
+        $data .= " `{$k}`='{$v}' ";
+      }
+      $chk = $this->conn->query("SELECT * FROM `offense_list` where license_id_no = `` ");
+    }
+  }
   function delete_offense_record()
   {
     extract($_POST);
